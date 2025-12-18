@@ -1,0 +1,53 @@
+name: Build
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+    branches: ["*"]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Toolchain
+        uses: dtolnay/rust-toolchain@stable
+        with:
+          toolchain: stable
+          components: rustfmt, clippy, llvm-tools-preview
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install OpenAPI Generator CLI
+        run: |
+          npm install -g @openapitools/openapi-generator-cli
+          openapi-generator-cli version-manager set 7.16.0
+
+      - name: Build
+        env:
+          RUSTFLAGS: "-D warnings"
+        run: cargo build
+
+      - name: Build All Features
+        env:
+          RUSTFLAGS: "-D warnings"
+        run: cargo build --all-features
+
+      - name: Check Format
+        run: cargo fmt --all -- --check
+
+      - name: Run Clippy
+        timeout-minutes: 60
+        run: cargo clippy --all-targets --all-features -j 4 -- -D warnings
+
+      - name: Run Test
+        run: cargo test --all-features
+
+      - name: Check Dirty Files
+        run: scripts/check_dirty_files.sh

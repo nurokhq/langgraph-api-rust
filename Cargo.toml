@@ -1,0 +1,28 @@
+[package]
+name = "langgraph-api"
+version = "0.1.0"
+edition = "2024"
+description = "Rust Client API of LangGraph"
+license = "MIT"
+repository = "https://github.com/nurokhq/langgraph-api-rust"
+homepage = "https://github.com/nurokhq/langgraph-api-rust"
+documentation = "https://docs.langchain.com"
+authors = ["Rui Zhang <zr@nurok.ai>", "Jian Fang <fj@nurok.ai>"] 
+keywords = ["api", "client", "langchain", "langgraph"]
+categories = ["api-bindings"]
+
+[features]
+default = ["rustls-tls"]
+native-tls = ["reqwest/native-tls"]
+rustls-tls = ["reqwest/rustls-tls"]
+
+[dependencies]
+serde = { version = "1.0.228", features = ["derive"] }
+serde_json = { version = "1.0.145" }
+serde_with = { version = "3.15.1", default-features = false, features = ["base64", "std", "macros"] }
+url = { version = "2.5.7" }
+reqwest = { version = "0.12.24", features = ["json", "multipart"] }
+uuid = { version = "1.19.0", features = ["serde"] }
+
+[dev-dependencies]
+tokio = { version = "1.47.1", features = ["full"] }
