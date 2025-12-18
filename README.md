@@ -9,19 +9,22 @@ Rust API Client SDK for [LangGraph API](https://langchain-ai.github.io/langgraph
 
 ## Overview
 
-This is an auto-generated Rust client library for the LangGraph API. It provides type-safe bindings for interacting with the AgentOS platform, which manages AI agents, teams, workflows, sessions, and more.
+This is an auto-generated Rust client library for the LangGraph API. It provides type-safe bindings for interacting with LangGraph Cloud, which enables building and running stateful, multi-actor applications with LLMs.
 
 ## Features
 
 - **Type-safe API client**: Auto-generated from OpenAPI specification
 - **Async/await support**: Built on `reqwest` with async/await
 - **Flexible TLS backends**: Choose between `rustls-tls` (default) or `native-tls`
-- **Comprehensive API coverage**: Full support for all AgentOS endpoints including:
-  - Agent management and execution
-  - Team and workflow orchestration
-  - Session management
-  - Memory and knowledge base operations
-  - Configuration management
+- **Comprehensive API coverage**: Full support for all LangGraph endpoints including:
+  - Assistant management (create, search, versioning, graph inspection)
+  - Thread and conversation management
+  - Run execution (stateful and stateless, with streaming support)
+  - Scheduled runs with cron jobs
+  - Key-value store operations
+  - Agent-to-Agent Protocol (A2A) communication
+  - Model Context Protocol (MCP) support
+  - System operations (health checks, server info, metrics)
 
 ## Installation
 
