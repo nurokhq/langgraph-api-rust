@@ -1,6 +1,6 @@
 [package]
 name = "langgraph-api"
-version = "0.1.0"
+version = "0.1.1"
 edition = "2024"
 description = "Rust Client API of LangGraph"
 license = "MIT"
@@ -20,6 +20,7 @@ rustls-tls = ["reqwest/rustls-tls"]
 serde = { version = "1.0.228", features = ["derive"] }
 serde_json = { version = "1.0.145" }
 serde_with = { version = "3.15.1", default-features = false, features = ["base64", "std", "macros"] }
+typed-builder = { version = "0.22.0" }
 url = { version = "2.5.7" }
 reqwest = { version = "0.12.24", features = ["json", "multipart"] }
 uuid = { version = "1.19.0", features = ["serde"] }
