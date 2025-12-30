@@ -32,14 +32,14 @@ Add this to your `Cargo.toml`:
 
 ```toml
 [dependencies]
-langgraph-api = { version = "0.1.0", features = ["rustls-tls"] }
+langgraph-api = { version = "0.1.1", features = ["rustls-tls"] }
 ```
 
 Or with native TLS:
 
 ```toml
 [dependencies]
-langgraph-api = { version = "0.1.0", features = ["native-tls"] }
+langgraph-api = { version = "0.1.1", features = ["native-tls"] }
 ```
 
 ## Version Compatibility
@@ -49,6 +49,7 @@ The following table shows the version correspondence between the client and Lang
 | Client Version | LangGraph API Version |
 |----------------|-------------------|
 | 0.1.0          | 0.1.0             |
+| 0.1.1          | 0.1.0             |
 
 Please ensure you use a compatible client version for your LangGraph API version to avoid compatibility issues.
 
